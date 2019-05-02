@@ -1,8 +1,10 @@
-// implement your API here
+require('dotenv').config();
 const express = require('express');
 const db = require('./data/db');
 const server = express();
 server.use(express.json());
+
+const port = process.env.PORT || 5001;
 
 server.get('/', (req, res) => {
   res.send('Welcome to Lambda Users')
@@ -103,6 +105,6 @@ server.put('/api/users/:id', (req, res) => {
 })
 
 
-server.listen(3000, () => {
-  console.log("\nServer is running on port 3000\n")
+server.listen(port, () => {
+  console.log(`\nServer is running on port ${port}\n`)
 })
